@@ -1,0 +1,12 @@
+<template name="suppliersList">
+  <div class="posts">
+  <div class="post">
+    <div class="post-content">
+      <h3>Suppliers</h3>
+    </div>
+  </div>
+    {{#each suppliers}}
+      {{> supplierItem}}
+    {{/each}}
+  </div>
+</template>
