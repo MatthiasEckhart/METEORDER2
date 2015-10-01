@@ -13,7 +13,7 @@ Template.supplierEdit.events({
     Suppliers.update(currentSupplierId, {$set: supplierProperties}, function(error) {
       if (error) {
         // display the error to the user
-        alert(error.reason);
+        throwError(error.reason);
       } else {
         Router.go('supplierPage', {_id: currentSupplierId});
       }
