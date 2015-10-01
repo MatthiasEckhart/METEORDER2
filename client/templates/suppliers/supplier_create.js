@@ -11,11 +11,11 @@ Template.supplierCreate.events({
     Meteor.call('supplierInsert', supplier, function(error, result) {
       // display the error to the user and abort
       if (error)
-        return alert(error.reason);
+        return throwError(error.reason);
 
       // show this result but route anyway
       if (result.supplierExists)
-        alert('This supplier already exists.');
+        return throwError('This supplier already exists.');
 
       Router.go('supplierPage', {_id: result._id});  
     });
