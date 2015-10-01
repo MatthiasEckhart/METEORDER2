@@ -12,10 +12,13 @@ Template.supplierCreate.events({
       // display the error to the user and abort
       if (error)
         return alert(error.reason);
+
+      // show this result but route anyway
+      if (result.supplierExists)
+        alert('This supplier already exists.');
+
       Router.go('supplierPage', {_id: result._id});  
     });
 
-    supplier._id = Suppliers.insert(supplier);
-    Router.go('supplierPage', supplier);
   }
 });
