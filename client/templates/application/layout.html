@@ -1,10 +1,6 @@
 <template name="layout">
   <div class="container-fluid">
-    <header class="navbar navbar-default" role="navigation"> 
-      <div class="navbar-header">
-        <a class="navbar-brand" href="{{pathFor 'suppliersList'}}">METEORDER</a>
-      </div>
-    </header>
+   {{> header}}
     <div class="row">
     <div class="col-md-3 col-lg-3" id="side" >
       {{> suppliersList}}
