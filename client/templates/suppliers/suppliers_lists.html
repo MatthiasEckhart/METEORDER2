@@ -5,9 +5,11 @@
       <h3>Suppliers</h3>
     </div>
   </div>
+  
     {{#each suppliers}}
       {{> supplierItem}}
     {{/each}}
+
   {{#if currentUser}}<div class="post">
     <div class="post-content">
       <a href="{{pathFor 'supplierCreate'}}"><h3>Add Supplier</h3></a>
