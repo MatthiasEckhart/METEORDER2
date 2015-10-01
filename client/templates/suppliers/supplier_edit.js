@@ -1,3 +1,15 @@
+Template.supplierEdit.onCreated(function() {
+  Session.set('supplierEditErrors', {});
+});
+Template.supplierEdit.helpers({
+  errorMessage: function(field) {
+    return Session.get('supplierEditErrors')[field];
+  },
+  errorClass: function (field) {
+    return !!Session.get('supplierEditErrors')[field] ? 'has-error' : '';
+  }
+});
+
 Template.supplierEdit.events({
   'submit form': function(e) {
     e.preventDefault();
@@ -9,6 +21,10 @@ Template.supplierEdit.events({
       supplierEmail: $(e.target).find('[name=supplierEmail]').val(),
       accountNo: $(e.target).find('[name=accountNo]').val()
     }
+
+    var errors = validateSupplier(supplierProperties);
+    if (errors.supplierName || errors.supplierEmail || errors.accountNo)
+      return Session.set('postEditErrors', errors);
 
     Suppliers.update(currentSupplierId, {$set: supplierProperties}, function(error) {
       if (error) {
