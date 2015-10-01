@@ -1,5 +1,10 @@
 <template name="supplierPage">
   <div class="post-page page">
     {{> supplierItem}}
+     <ul class="comments">
+      {{#each products}}
+        {{> productItem}}
+      {{/each}}
+    </ul>
   </div>
 </template>
