@@ -1,5 +1,5 @@
 Template.supplierPage.helpers({
-  comments: function() {
+  products: function() {
     return Products.find({supplierId: this._id});
   }
 });
