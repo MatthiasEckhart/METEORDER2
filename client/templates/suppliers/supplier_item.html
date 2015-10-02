@@ -1,9 +1,11 @@
 <template name="supplierItem">
-  <div class="supplier {{selectedClass}} post">
+  <a href="{{pathFor 'supplierPage'}}">
+  	<div class="supplier {{selectedClass}} post">
     <div class="post-content">
       <h3>{{supplierName}} <span>({{accountNo}})</span></h3>
-      <a href="{{pathFor 'supplierPage'}}"><p>{{productsCount}} Products </p></a>
+      <p>{{productsCount}} Products </p>
     </div>
     <a href="{{pathFor 'supplierEdit'}}" class="discuss btn btn-default">Edit</a>
   </div>
+  </a>
 </template>
