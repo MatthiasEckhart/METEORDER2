@@ -18,7 +18,8 @@ if (Suppliers.find().count() === 0) {
     creator: brian.profile.name,
     supplierEmail: 'sales@garagiste.ie',
     accountNo: 'FA1234',
-    submitted: new Date(now - 7 * 3600 * 1000)
+    submitted: new Date(now - 7 * 3600 * 1000),
+    productsCount: 2
   });
 
   Products.insert({
@@ -49,7 +50,8 @@ if (Suppliers.find().count() === 0) {
     creator: brian.profile.name,
     supplierEmail: 'sales@cloudchain.ie',
     accountNo: 'FA6789',
-    submitted: new Date(now - 9 * 3600 * 1000)
+    submitted: new Date(now - 9 * 3600 * 1000),
+    productsCount: 0
   });
 
   Suppliers.insert({
@@ -58,6 +60,7 @@ if (Suppliers.find().count() === 0) {
     creator: clive.profile.name,
     supplierEmail: 'sales@larousse.ie',
     accountNo: 'FA9000',
-    submitted: new Date(now - 6 * 3600 * 1000)
+    submitted: new Date(now - 6 * 3600 * 1000),
+    productsCount: 0
   });
 }

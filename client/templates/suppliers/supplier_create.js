@@ -30,9 +30,9 @@ Template.supplierCreate.events({
       if (error)
         return throwError(error.reason);
 
-      // show this result but route anyway
+      /* show this result but route anyway
       if (result.supplierExists)
-        return throwError('This supplier already exists.');
+        return throwError('This supplier already exists.'); */
 
       Router.go('supplierPage', {_id: result._id});  
     });
