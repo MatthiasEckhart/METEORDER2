@@ -7,11 +7,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{pathFor 'suppliersList'}}">METEORDER</a>
+     <!-- <a class="navbar-brand" href="{{pathFor 'suppliersList'}}">METEORDER</a>-->
+           <a class="navbar-brand" href="#">METEORDER</a>
+
     </div>
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="nav navbar-nav navbar-right">
-        {{> loginButtons}}
+       {{#if currentUser}}
+        <li><a href="#" class="logout">Logout</a></li>
+    {{else}}
+     <li><a href="{{pathFor route='homepage'}}">Home</a></li>
+    <li><a href="{{pathFor route='register'}}">Register</a></li>
+        <li><a href="{{pathFor route='login'}}">Login</a></li>
+    {{/if}}
       </ul>
     </div>
   </nav>
