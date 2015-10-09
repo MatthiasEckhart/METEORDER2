@@ -1,7 +1,8 @@
 <template name="supplierPage">
-  <div class="post-page page">
-    {{> productCreate}}
+  <div class="post-page">
+  
      <ul class="comments">
+     <li>   {{> productCreate}}</li>
      <li><h3>Your products</h3></li>
       {{#each products}}
         {{> productItem}}
@@ -9,3 +10,5 @@
     </ul>
   </div>
 </template>
+
+

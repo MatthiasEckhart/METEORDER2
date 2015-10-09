@@ -1,9 +1,26 @@
 <template name="productItem">
   <li>
-    <h4>
+  <div class="ui styled fluid accordion">
+  <div class="title">
+   <div>
+    <h4> <i class="dropdown icon"></i>
       <span class="author">{{sku}}</span>
       <span class="date"> {{description}}</span>
+       <p>{{unit}} {{price}}</p>
     </h4>
-    <p>{{unit}} {{price}}</p>
+    </div>
+   
+    <a href="{{pathFor 'productEdit'}}" class="discuss btn btn-default">Edit</a>
+     </div>
+   <div class="content">
+  <div class="transition hidden">
+    <span>{{> productEdit}}</span>
+    </div>
+    </div>
+   
+    </div>
   </li>
+   
+  
 </template>
+

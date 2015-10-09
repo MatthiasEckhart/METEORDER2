@@ -24,7 +24,7 @@ Template.supplierEdit.events({
 
     var errors = validateSupplier(supplierProperties);
     if (errors.supplierName || errors.supplierEmail || errors.accountNo)
-      return Session.set('postEditErrors', errors);
+      return Session.set('supplierEditErrors', errors);
 
     Suppliers.update(currentSupplierId, {$set: supplierProperties}, function(error) {
       if (error) {
