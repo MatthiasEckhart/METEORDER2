@@ -2,16 +2,19 @@
   <li>
   <div class="ui styled fluid accordion">
   <div class="title">
-   <div>
+   <div id="{{_id}}">
     <h4> <i class="dropdown icon"></i>
       <span class="author">{{sku}}</span>
       <span class="date"> {{description}}</span>
        <p>{{unit}} {{price}}</p>
+      
     </h4>
     </div>
    
     <a href="{{pathFor 'productEdit'}}" class="discuss btn btn-default">Edit</a>
+      <input placeholder="Qty" class="input input-mini prodqty" value="0"/><a class="btn btn-success btn-mini addOrder" href="#">Add</a>
      </div>
+      
    <div class="content">
   <div class="transition hidden">
     <span>{{> productEdit}}</span>
