@@ -15,6 +15,8 @@ Meteor.methods({
 
     },
     removeOrderItem:function(id){
+         check(id, String);
         OrderItems.remove({_id:id});
+        console.log('successfully deleted');
     }
 }); 

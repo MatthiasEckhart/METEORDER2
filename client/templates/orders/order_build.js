@@ -21,10 +21,13 @@ Template.order.helpers({
             orderCart.push(orderItem);
         });
         console.log(typeof total, total, 'yo');
-        orderCart.subtotal = 25;
+        orderCart.subtotal = Number(2525);
+
         orderCart.tax = orderCart.subtotal * .23;
         orderCart.total = orderCart.subtotal + orderCart.tax;
+        console.log(orderCart.subtotal, 'himan');
         return orderCart;
+
     }
 })
 
