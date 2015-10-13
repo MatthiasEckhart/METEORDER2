@@ -12,6 +12,7 @@ Meteor.publish('products', function(supplierId) {
 
 Meteor.publish('orderitems', function() {
   
-  return OrderItems.find()
+  return OrderItems.find({});
+  console.log('published OrderItems');
 });
 
