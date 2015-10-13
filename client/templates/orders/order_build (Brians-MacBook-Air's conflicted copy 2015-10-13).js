@@ -1,8 +1,6 @@
-Template.order.orderItems = function(){
-   
-};
+Template.order.orderItems = function(){};
 Template.order.helpers({
-    'orderItems':function(){
+    'orderitems':function(){
         var orderCart = [];
         var orderItems = OrderItems.find({});
         var total = 0;
@@ -11,6 +9,7 @@ Template.order.helpers({
         var item = _.extend(orderItem,{});
         var product = Products.findOne({_id:orderItem.product});
         orderItem.productname = product.name;
+        console.log(orderItem.productname);
         orderItem.price = (Number(product.price) * orderItem.qty);
         total += orderItem.price;
         orderCart.push(orderItem);
