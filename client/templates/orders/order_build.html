@@ -12,31 +12,32 @@
         <th></th>
         </thead>
         <tbody>
-        {{#each orderitems}}
-        <tr>
-            <td>{{qty}}</td>
-            <td>{{productname}}</td>
-            <td>{{currency price}}</td>
-            <td><span class="label-important label removeci">X</span></td>
-        </tr>
+        {{#each orderItems}}
+            <tr>
+                <td>{{qty}}</td>
+                <td>{{productname}}</td>
+                <td>{{currency price}}</td>
+                <td><span class="label-important label removeci">X</span></td>
+            </tr>
         {{else}}
-        <tr>
-            <td colspan="3">No Products in Order</td>
-        </tr>
+            <tr>
+                <td colspan="3">No Products in Order</td>
+            </tr>
         {{/each}}
-        <tr>
-            <td class="totalcol" colspan="2">SubTotal:</td>
-            <td colspan="2">{{currency orderCart.subtotal}}</td>
-        </tr>
-        <tr>
-            <td class="totalcol" colspan="2">Tax 6%:</td>
-            <td colspan="2">{{currency orderCart.tax}}</td>
-        </tr>
-        <tr>
-            <td class="totalcol" colspan="2">Total:</td>
-            <td colspan="2">{{currency orderCart.total}}</td>
-        </tr>
+        {{#with orderCart}}
+            <tr>
+                <td class="totalcol" colspan="2">SubTotal:</td>
+                <td colspan="2">{{currency orderCart.subtotal}}</td>
+            </tr>
+            <tr>
+                <td class="totalcol" colspan="2">Tax 6%:</td>
+                <td colspan="2">{{currency orderCart.tax}}</td>
+            </tr>
+            <tr>
+                <td class="totalcol" colspan="2">Total:</td>
+                <td colspan="2">{{currency orderCart.total}}</td>
+            </tr>
+        {{/with}}
         </tbody>
     </table>
-
 </template>

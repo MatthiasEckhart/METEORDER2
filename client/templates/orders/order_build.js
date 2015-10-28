@@ -1,35 +1,34 @@
-//Template.order.orderItems = function(){};
 Template.order.helpers({
-    'orderitems': function() {
-        var orderCart = [];
-        console.log('hello');
-        var orderItems = OrderItems.find({});
-        console.log(orderItems);
-        var total = 0;
-        console.log(total);
-
-        orderItems.forEach(function(orderItem) {
-            console.log('made it into loop');
-            var item = _.extend(orderItem, {});
-            var product = Products.findOne({
+    orderItems: function () {
+        return OrderItems.find().map((orderItem) => {
+            let product = Products.findOne({
                 _id: orderItem.product
             });
-            orderItem.productname = product.description;
-            orderItem.price = (Number(product.price) * orderItem.qty);
-            console.log('hello man');
-            total += orderItem.price;
-            orderCart.push(orderItem);
+            if (product) {
+                orderItem.productname = product.description;
+                orderItem.price = calcPrice(product, orderItem);
+                return orderItem;
+            }
         });
-        console.log(typeof total, total, 'yo');
-        orderCart.subtotal = Number(2525);
-
+    },
+    orderCart: function () {
+        let orderCart = {subtotal: 0};
+        OrderItems.find().forEach((orderItem) => {
+            let product = Products.findOne({
+                _id: orderItem.product
+            });
+            if (product) orderCart.subtotal += calcPrice(product, orderItem);
+        });
+        
         orderCart.tax = orderCart.subtotal * .23;
         orderCart.total = orderCart.subtotal + orderCart.tax;
-        console.log(orderCart.subtotal, 'himan');
         return orderCart;
-
     }
-})
+});
+
+function calcPrice(product, orderItem) {
+    return (Number(product.price) * orderItem.qty);
+}
 
 Template.order.events({
     'click .removeci': function(evt, tmpl) {
