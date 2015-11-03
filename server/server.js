@@ -6,9 +6,13 @@ Meteor.methods({
         check(product, String);
         check(session, String);
         if(qty > 0){
+            if(!alreadyAdded(product)){
             OrderItems.insert({qty:qty,product:product,sessid:session});
-            console.log('reaching this fn', typeof qty, typeof product, typeof session);
-
+            console.log('reaching this fn', qty, product, session);
+        }else{
+            OrderItems.update({product:product},{qty:qty,product:product,sessid:session})
+            console.log('Successfully updated');
+        }
         } else{
             console.log('Quantity is Zero');
         }
@@ -19,4 +23,15 @@ Meteor.methods({
         OrderItems.remove({_id:id});
         console.log('successfully deleted');
     }
+    
+
+    
 }); 
+
+ function alreadyAdded(product){
+        if(!OrderItems.findOne({product:product})){
+            return false;
+        }else{
+            return true;
+        }
+        }

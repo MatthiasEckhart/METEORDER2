@@ -15,5 +15,6 @@ Template.supplierItem.events({
 'click .supplier': function() {
             var supplierId = this._id;
             Session.set('selectedSupplier', supplierId);
+            console.log(Session);
         }
     });

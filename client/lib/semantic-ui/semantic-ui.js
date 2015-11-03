@@ -1,7 +1,15 @@
 Template.productCreate.rendered = function(){
-                $('.ui.accordion').accordion();
+                $('.accordion').accordion({
+    selector: {
+      trigger: '.title .icon'
+    }
+  });
              }
 
  Template.productItem.rendered = function(){
-                $('.ui.accordion').accordion();
+                $('.accordion').accordion({
+    selector: {
+      trigger: '.title .edit'
+    }
+  });
              }
