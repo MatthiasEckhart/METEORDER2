@@ -1,20 +1,19 @@
 <template name="suppliersList">
-  <div class="posts">
-  <div class="post">
-    <div class="post-content">
-      <h3>Suppliers</h3>
-      {{#if currentUser}}<div class="post">
-    <div class="post-content">
-      <a href="{{pathFor 'supplierCreate'}}"><i class="ui icon icon-po add circle addSupplier-popup" data-content="Click me to add your awesome new supplier." data-variation="tiny"></i></a>
-    </div>
-  </div>{{/if}}
-    </div>
-  </div>
-  
-    {{#each suppliers}}
-      {{> supplierItem}}
-    {{/each}}
-
-  
-  </div>
+   <div class="posts">
+      <div class="post">
+         <div class="post-content">
+            <h3>Suppliers</h3>
+            {{#if currentUser}}
+            <div class="post">
+               <div class="post-content">
+                  <a href="{{pathFor 'supplierCreate'}}"><i class="ui icon icon-po add circle addSupplier-popup" data-content="Click me to add your awesome new supplier." data-variation="tiny"></i></a>
+               </div>
+            </div>
+            {{/if}}
+         </div>
+      </div>
+      {{#each suppliers}}
+        {{> supplierItem}}
+      {{/each}}
+   </div>
 </template>

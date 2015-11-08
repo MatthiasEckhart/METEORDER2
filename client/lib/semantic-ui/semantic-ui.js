@@ -15,11 +15,11 @@ Template.productCreate.onRendered(function(){
              });
 
 Template.supplierItem.onRendered(function(){
-               $('.edit-popup')
-  .popup()
-;
+               $('.edit-popup').popup();
+              
              });
 
 Template.suppliersList.onRendered(function(){
-               $('addSupplier-popup').popup();
+               $('.addSupplier-popup').popup();
+                $('.ui.sidebar').sidebar('toggle');
              });
