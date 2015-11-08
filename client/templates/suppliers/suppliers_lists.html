@@ -3,6 +3,11 @@
   <div class="post">
     <div class="post-content">
       <h3>Suppliers</h3>
+      {{#if currentUser}}<div class="post">
+    <div class="post-content">
+      <a href="{{pathFor 'supplierCreate'}}"><i class="ui icon icon-po add circle addSupplier-popup" data-content="Click me to add your awesome new supplier." data-variation="tiny"></i></a>
+    </div>
+  </div>{{/if}}
     </div>
   </div>
   
@@ -10,10 +15,6 @@
       {{> supplierItem}}
     {{/each}}
 
-  {{#if currentUser}}<div class="post">
-    <div class="post-content">
-      <a href="{{pathFor 'supplierCreate'}}"><h3>Add Supplier</h3></a>
-    </div>
-  </div>{{/if}}
+  
   </div>
 </template>

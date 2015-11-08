@@ -1,0 +1,11 @@
+/* links */
+
+a.link-po{
+	text-decoration: none !important;
+	color: #ccff00;
+}
+
+a.link-po:hover{
+	text-decoration: none !important;
+	color: #29abe2;
+}

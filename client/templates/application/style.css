@@ -35,3 +35,20 @@ body{
 .ui.header > .image, .ui.header > img{
 	width: 1.5em !important;
 }
+
+/* icons */
+
+.icon-po{
+	color: #ccff00 !important;
+}
+
+i.addSupplier-popup{
+  font-size: 2em !important;
+  text-decoration: none !important;
+  height: 0em !important;
+}
+
+i.edit-popup{
+  text-decoration: none !important;
+  height: 0em !important;
+}

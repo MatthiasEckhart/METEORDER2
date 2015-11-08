@@ -5,7 +5,10 @@
       <h3>{{supplierName}} <span>({{accountNo}})</span></h3>
       <p>{{productsCount}} Products </p>
     </div>
-    <a href="{{pathFor 'supplierEdit'}}" class="discuss btn btn-default">Edit</a>
+
+    {{#if selectedClass}}
+    <a href="{{pathFor 'supplierEdit'}}" ><i class="ui icon big edit edit-popup" data-content="Click me to edit supplier info." data-variation="tiny"></i> </a>
+    {{/if}}
   </div>
   </a>
 </template>
