@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="nav navbar-nav navbar-right">
        {{#if currentUser}}
-        <li><a href="#" class="logout">Logout</a></li>
+        <li><a href="#" class="logout logout-popup" data-content="Bye for now gorgeous!!" data-variation="tiny">Logout</a></li>
     {{else}}
      <li><a href="{{pathFor route='homepage'}}">Home</a></li>
     <li><a href="{{pathFor route='register'}}">Register</a></li>

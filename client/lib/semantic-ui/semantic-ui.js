@@ -23,3 +23,13 @@ Template.suppliersList.onRendered(function(){
                $('.addSupplier-popup').popup();
                 $('.ui.sidebar').sidebar('toggle');
              });
+
+Template.productItem.onRendered(function(){
+               $('.edit-popup').popup();
+              
+             });
+
+Template.header.onRendered(function(){
+               $('.logout-popup').popup();
+              
+             });
