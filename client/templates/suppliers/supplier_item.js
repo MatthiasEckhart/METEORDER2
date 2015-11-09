@@ -13,8 +13,10 @@ Template.supplierItem.helpers({
 
 Template.supplierItem.events({
 'click .supplier': function() {
+            var userId = Meteor.userId();
             var supplierId = this._id;
             Session.set('selectedSupplier', supplierId);
             console.log(Session);
+            Meteor.call('createOrder',userId, supplierId);
         }
     });
