@@ -15,3 +15,8 @@ Meteor.publish('orderitems', function() {
   return OrderItems.find()
 });
 
+Meteor.publish('orders', function() {
+  var currentUserId = this.userId;
+  return Orders.find({user: currentUserId});
+});
+

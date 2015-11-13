@@ -16,7 +16,8 @@ Template.supplierItem.events({
             var userId = Meteor.userId();
             var supplierId = this._id;
             Session.set('selectedSupplier', supplierId);
-            console.log(Session);
+             var selectedSupplier = Session.get('selectedSupplier');
+            console.log(selectedSupplier);
             Meteor.call('createOrder',userId, supplierId);
         }
     });
