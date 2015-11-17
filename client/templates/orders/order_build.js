@@ -2,9 +2,16 @@
 Template.order.helpers({
 
     currentOrder: function(){
+        var userId = Meteor.userId();
         var selectedSupplier = Session.get('selectedSupplier');
-         return Orders.find({supplier: selectedSupplier});
-         
+        var currentOrder = Orders.findOne({supplier: selectedSupplier, status:0});
+        // console.log('hello ' + currentOrder.orderItems.product[0]); // this returns [object object] ...why???
+         return currentOrder;
+
+         this.currentOrder.map((orderItem) => {
+            console.log(orderItem.product);
+         });
+
     }
 });
 
@@ -13,7 +20,7 @@ Template.order.helpers({
 
 Template.order.helpers({
     orderItems: function () {
-        debugger;
+        //debugger;
       var userId = Meteor.userId();
       console.log(userId);
       var selectedSupplier = Session.get('selectedSupplier');
@@ -54,8 +61,8 @@ Template.order.events({
         Meteor.call('removeOrderItem', this._id);
     }
 });
-
-/*original version
+*/
+//original version
 
 Template.order.helpers({
     orderItems: function () {
@@ -95,4 +102,4 @@ Template.order.events({
     }
 });
 
-*/
+//*/

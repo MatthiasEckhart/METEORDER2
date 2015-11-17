@@ -3,8 +3,12 @@
         <h1>
             <small>My Order</small>
         </h1>
-        {{#each currentOrder}}
-        <h2>hello {{supplier}}</h2>   
+        {{#with currentOrder}}
+        <h2>hello {{supplier}}, {{_id}}</h2>   
+        {{/with}}
+
+        {{# each currentOrder.orderItems}}
+            <p>{{product}} : {{qty}}</p>
         {{/each}}
     </div>
    
