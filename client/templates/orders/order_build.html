@@ -3,13 +3,16 @@
         <h1>
             <small>My Order</small>
         </h1>
-        {{#with currentOrder}}
-        <h2>hello {{supplier}}, {{_id}}</h2>   
-        {{/with}}
+        
+        <h2>hello{{#with supplier}} {{supplier}}{{/with}}, {{#with currentOrder}}{{_id}}{{/with}}</h2>   
+        
 
-        {{# each currentOrder.orderItems}}
-            <p>{{product}} : {{qty}}</p>
+        {{# each currentOrder}}
+            <p>{{productname}} {{qty}} {{currency price}}  <span style="color:black" class="label-important label removeci">X</span></p>
         {{/each}}
+        {{#with orderCart}}
+        <p>Total: {{currency subtotal}}</p>
+        {{/with}}
     </div>
    
   </template>

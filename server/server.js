@@ -105,11 +105,10 @@ Meteor.methods({
      }
 
  },*/
-    removeOrderItem: function(id) {
+    removeOrderItem: function(id, product) {
         check(id, String);
-        OrderItems.remove({
-            _id: id
-        });
+        check(product, String);
+        Orders.update({ _id : "id" }, {$pull : { "orderItems" : {"product":"product"} } } )
         console.log('successfully deleted');
     }
 
@@ -152,3 +151,4 @@ function openOrderExists(supplierId) {
     }
 
 }
+
