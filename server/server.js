@@ -58,6 +58,87 @@ Meteor.methods({
             }
 
         },
+        increaseOrder: function(userId, selectedSupplier, qty, product, session) {
+            check(userId, String);
+            check(selectedSupplier, String);
+            check(qty, Number);
+            check(product, String);
+            check(session, String);
+            if (qty > 0) {
+                if (!alreadyAdded(userId, selectedSupplier, product)) {
+                    Orders.update({
+                        user: userId,
+                        supplier: selectedSupplier,
+                        status: 0
+                    }, {
+                        $push: {
+                            orderItems: {
+                                $each: [{
+                                    product: product,
+                                    qty: qty
+                                }]
+                            }
+                        }
+                    });
+
+                    console.log('New product '+product+' added to order');
+                } else {
+                    Orders.update({
+                        user: userId,
+                        supplier: selectedSupplier,
+                        status: 0,
+                        'orderItems.product': product
+                    }, {
+                        $inc: {
+                            'orderItems.$.qty': qty
+                        }
+                    });
+                   console.log('Product '+product+' updated');
+                }
+            } else {
+                console.log('Quantity is Zero');
+            }
+
+        },
+        decreaseOrder: function(userId, selectedSupplier, qty, product, session) {
+            check(userId, String);
+            check(selectedSupplier, String);
+            check(qty, Number);
+            check(product, String);
+            check(session, String);
+            if (qty < 0) {
+                if (!alreadyAdded(userId, selectedSupplier, product)) {
+                    Orders.update({
+                        user: userId,
+                        supplier: selectedSupplier,
+                        status: 0
+                    }, {
+                        $push: {
+                            orderItems: {
+                                $each: [{
+                                    product: product,
+                                    qty: qty
+                                }]
+                            }
+                        }
+                    });
+                } else {    
+                    Orders.update({
+                        user: userId,
+                        supplier: selectedSupplier,
+                        status: 0,
+                        'orderItems.product': product
+                    }, {
+                        $inc: {
+                            'orderItems.$.qty': qty
+                        }
+                    });                
+                }
+            } else {
+                console.log('Quantity is Zero');
+            }
+
+        },
 
     // end
 
@@ -108,7 +189,7 @@ Meteor.methods({
     removeOrderItem: function(id, product) {
         check(id, String);
         check(product, String);
-        Orders.update({ _id : "id" }, {$pull : { "orderItems" : {"product":"product"} } } )
+        Orders.update({ _id : id }, {$pull : { orderItems : {product:product} } } )
         console.log('successfully deleted');
     }
 

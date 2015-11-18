@@ -76,7 +76,9 @@ function calcPrice(product, orderItem) {
 }
 
 Template.order.events({
+
     'click .removeci': function(evt, tmpl) {
+        evt.preventDefault();
          var selectedSupplier = Session.get('selectedSupplier');
      var order = Orders.findOne({
          supplier: selectedSupplier,
