@@ -1,22 +1,39 @@
 <template name="order">
-    <div class="page-header">
-        <h1>
-            <small>My Order</small>
-        </h1>
+    <div class="ui dividing header">
+        <h3 class="ui header">My Orders</h3>
+     </div>    
+        <h4 class="ui header">Supplier: {{#with supplier}} {{supplier}}{{/with}}</h4>   
         
-        <h2>hello{{#with supplier}} {{supplier}}{{/with}}, {{#with currentOrder}}{{_id}}{{/with}}</h2>   
-        
-
-        {{# each currentOrder}}
-            <p>{{productname}} {{qty}} {{currency price}}  <span style="color:black" class="label-important label removeci">X</span></p>
-        {{/each}}
-        {{#with orderCart}}
-        <p>Total: {{currency subtotal}}</p>
+    <table class="ui very basic collapsing celled table">
+  <thead>
+    <tr><th>Product</th>
+    <th>Qty</th>
+    <th>Price</th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+   {{# each currentOrder}}
+    <tr>
+      <td>{{productname}}</td>
+      <td>{{qty}}</td>
+      <td>{{currency price}}</td>
+      <td><span style="color:black" class="label-important label removeci"><i class="remove icon red"></i></span></td>
+    </tr>
+     {{/each}}
+     <tr>
+         <th>Total (Ex. VAT)</th>
+         <td colspan="3">
+              {{#with orderCart}}
+        {{currency subtotal}}
         {{/with}}
-    </div>
+         </td>
+     </tr>
+  </tbody>
+</table>
    
   </template>
 
+ 
 <!-- original
 
 <template name="order">

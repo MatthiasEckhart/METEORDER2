@@ -28,9 +28,9 @@
 	padding: 0px !important;
 }
 
-.ui.message{
+/* .ui.message{
 	padding: 40px !important;
-}
+} */
 
 @media (max-width: 767px) {
   	.ui.grid.main{
@@ -43,8 +43,3 @@
 	}
 }
 
-.ui.vertical.menu{
-	margin-top: -15px !important;
-	width: 100%;
-	display: none;
-}

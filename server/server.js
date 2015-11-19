@@ -22,7 +22,7 @@ Meteor.methods({
             check(qty, Number);
             check(product, String);
             check(session, String);
-            if (qty > 0) {
+            if (qty >= 0) {
                 if (!alreadyAdded(userId, selectedSupplier, product)) {
                     Orders.update({
                         user: userId,

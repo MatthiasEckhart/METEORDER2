@@ -1,14 +1,13 @@
 <template name="supplierPage">
-  <div class="post-page">
-  
-     <ul class="comments">
-     <li>   {{> productCreate}}</li>
-     <li><h3>Your products</h3></li>
-      {{#each products}}
-        {{> productItem}}
-      {{/each}}
-    </ul>
-  </div>
+ 
+          <div class="ui dividing header">
+        <h3 class="ui header">My Products</h3>
+     </div>
+       <div>
+          {{> productCreate}}
+         {{#each products}}
+         {{> productItem}}
+         {{/each}}
+     
+   </div>
 </template>
-
-

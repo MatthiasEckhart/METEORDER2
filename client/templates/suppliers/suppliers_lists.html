@@ -1,17 +1,21 @@
 <template name="suppliersList">
-   <div class="posts">
-      <div class="post">
-         <div class="post-content">
-            <h3>Suppliers</h3>
-            {{#if currentUser}}
-            <div class="post">
-               <div class="post-content">
+   <div class="supplier">
+      <div class="item">
+        
+         <div class="ui dividing header menu-header-custom">
+        <h3 class="ui header h3-custom">
+          My Suppliers
+        </h3>
+         {{#if currentUser}}
+            <div>
                   <a href="{{pathFor 'supplierCreate'}}"><i class="ui icon icon-po add circle addSupplier-popup" data-content="Click me to add your awesome new supplier." data-variation="tiny"></i></a>
-               </div>
             </div>
             {{/if}}
+     </div>  
+           
          </div>
       </div>
+      <div>
       {{#each suppliers}}
         {{> supplierItem}}
       {{/each}}

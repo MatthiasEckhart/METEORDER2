@@ -1,11 +1,16 @@
 <template name="supplierItem">
-  <a href="{{pathFor 'supplierPage'}}">
-  	<div class="supplier {{selectedClass}} post">
-    <div class="post-content">
-      <h3>{{supplierName}} <span>({{accountNo}})</span></h3>
+<div class="supplier {{selectedClass}} ">
+  <a class="item" href="{{pathFor 'supplierPage'}}">
+  	
+    <div class="supplier-item">
+    <div class="supplier-text">
+      <h4 class="ui header h4-custom">{{supplierName}} <span>({{accountNo}})</span></h4>
       <p>{{productsCount}} Products </p>
+      </div>
+       <a href="{{pathFor 'supplierEdit'}}" ><i class="ui icon big edit edit-popup a-supplier-edit" data-content="Click me to edit supplier info." data-variation="tiny"></i> </a>
     </div>
-    <a href="{{pathFor 'supplierEdit'}}" ><i class="ui icon big edit edit-popup" data-content="Click me to edit supplier info." data-variation="tiny"></i> </a>
-  </div>
+   
+  
   </a>
+  </div>
 </template>

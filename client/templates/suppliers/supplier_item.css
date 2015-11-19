@@ -1,3 +1,48 @@
 .edit{
 	float: right;
 }
+
+.h3-custom{
+	margin-bottom: 0px !important;
+	color: #e3e4e4 !important;
+}
+
+.h4-custom{
+	margin-bottom: 0px !important;
+	
+}
+
+/* Custom ***** */
+
+.selected{
+background-color: #dc9b38;
+margin-right: 15px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.supplier-item{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.supplier-text{
+	display: inline-block;
+}
+
+.a-supplier-edit{
+	color:#e3e4e4 !important;
+}
+
+.h1-header-custom{
+	display: inline-block;
+	color: #e3e4e4;
+}
+
+.menu-header-custom{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	
+}

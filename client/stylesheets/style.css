@@ -159,8 +159,4 @@ body {
   pointer-events: auto;
 }
 
-/* Custom ***** */
 
-.selected{
-background-color: yellow;
-}

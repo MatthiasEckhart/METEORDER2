@@ -31,5 +31,12 @@ Template.productItem.onRendered(function(){
 
 Template.header.onRendered(function(){
                $('.logout-popup').popup();
-              
+               $('.dropdown').dropdown();
+             });
+
+
+
+Template.layout.onRendered(function(){
+              $(".ui.sidebar").sidebar();
+               $('.dropdown').dropdown();
              });

@@ -1,26 +1,30 @@
 <template name="supplierCreate">
-  <form class="main form page">
-    <div class="form-group {{errorClass 'supplierName'}}">
-      <label class="control-label" for="supplierName">Supplier Name</label>
+ <div class="ui dividing header">
+        <h3 class="ui header">Add a new supplier</h3>
+     </div>
+  <form class="ui form">
+    <div class="field {{errorClass 'supplierName'}}">
+      <label>Supplier Name</label>
       <div class="controls">
-          <input name="supplierName" id="supplierName" type="text" value="" placeholder="Supplier Name" class="form-control"/>
+          <input name="supplierName" id="supplierName" type="text" value="" placeholder="Supplier Name"/>
            <span class="help-block">{{errorMessage 'supplierName'}}</span>
       </div>
     </div>
-     <div class="form-group {{errorClass 'supplierEmail'}}">
-      <label class="control-label" for="supplierEmail">email for orders</label>
+     <div class="field {{errorClass 'supplierEmail'}}">
+      <label>email for orders</label>
       <div class="controls">
-          <input name="supplierEmail" id="supplierEmail" type="text" value="" placeholder="email for orders" class="form-control"/>
+          <input name="supplierEmail" id="supplierEmail" type="text" value="" placeholder="Email For Orders"/>
            <span class="help-block">{{errorMessage 'supplierEmail'}}</span>
       </div>
     </div>
-    <div class="form-group {{errorClass 'accountNo'}}">
-      <label class="control-label" for="accountNo">Account No.</label>
+    <div class="field {{errorClass 'accountNo'}}">
+      <label>Account No.</label>
       <div class="controls">
-          <input name="accountNo" id="accountNo" type="text" value="" placeholder="Account No." class="form-control"/>
+          <input name="accountNo" id="accountNo" type="text" value="" placeholder="Account No."/>
            <span class="help-block">{{errorMessage 'accountNo'}}</span>
       </div>
     </div>
-    <input type="submit" value="Submit" class="btn btn-primary"/>
+    <input type="submit" value="Submit" class="ui button teal"/>
   </form>
 </template>
+

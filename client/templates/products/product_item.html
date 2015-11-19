@@ -1,36 +1,37 @@
 <template name="productItem">
-  <li>
-  <div class="ui styled fluid accordion accordion-edit">
-  <div class="title">
-   <div id="{{_id}}">
-    <h4> <i class="dropdown icon"></i>
-      <span class="author">{{sku}}</span>
-      <span class="date"> {{description}}</span>
-       <p>{{unit}} {{currency price}}</p>
-      
-    </h4>
-    </div>
-   
-   <!-- <a href="{{pathFor 'productEdit'}}" class="discuss btn btn-default">Edit</a>-->
-    <a href="#" ><i class="ui icon big edit edit-popup" data-content="Click me to edit product info." data-variation="tiny"></i></a>
-      <div class="ui action input">
-      <input placeholder="Qty" type="text" class=" prodqty productInput" value="0"/>
-     
-      <button class="ui button teal lessOrder" href="#">-</button>
-      <button class="ui button blue addOrder" href="#">+</button>
-     
+   <div class="ui styled fluid accordion accordion-edit product-create">
+      <div class="title">
+      <div class="ui grid">
+      <div class="eight wide column">
+         <div id="{{_id}}">
+            <h4>
+               <span class="date"> {{description}}</span>
+               <span class="author">({{sku}})</span>
+               <p>{{unit}} {{currency price}}</p>
+            </h4>
+         </div>
+         </div>
+        
+         <div class="six wide column">
+         <div class="ui action input">
+            <input placeholder="Qty" type="text" value="0" class="quantity-input"/>
+           
+            <button class="ui button light-blue lessOrder" href="#">-</button>
+            <button class="ui button  less-light-blue addOrder" href="#">+</button>
+          
+         </div>
+         </div>
+          <div class="two wide column">
+         <!-- <a href="{{pathFor 'productEdit'}}" class="discuss btn btn-default">Edit</a>-->
+         <a href="#" ><i class="ui icon big edit edit-popup grey" data-content="Click me to edit product info." data-variation="tiny"></i></a>
+         </div>
       </div>
-     </div>
-      
-   <div class="content">
-  <div class="transition hidden">
-    <span>{{> productEdit}}</span>
-    </div>
-    </div>
-   
-    </div>
-  </li>
-   
-  
+      </div>
+      <div class="content">
+         <div class="transition hidden">
+            <span>{{> productEdit}}</span>
+         </div>
+      </div>
+   </div>
 </template>
 
