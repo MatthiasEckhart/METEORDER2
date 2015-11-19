@@ -43,3 +43,7 @@ i.icon-footer{
   text-decoration: none !important;
   height: 0em !important;
 }
+
+.footer{
+transition: background 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s, opacity 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s;
+}
