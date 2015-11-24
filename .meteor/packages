@@ -28,3 +28,6 @@ accounts-base
 
 semantic:ui
 flemay:less-autoprefixer
+sarasate:semantic-ui-datetimepicker
+drewy:datetimepicker
+momentjs:moment

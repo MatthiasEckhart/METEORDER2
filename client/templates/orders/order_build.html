@@ -1,81 +1,96 @@
-<template name="order">
-    <div class="ui dividing header">
-        <h3 class="ui header">My Orders</h3>
-     </div>    
-        <h4 class="ui header">Supplier: {{#with supplier}} {{supplier}}{{/with}}</h4>   
-        
-    <table class="ui very basic collapsing celled table">
-  <thead>
-    <tr><th>Product</th>
-    <th>Qty</th>
-    <th>Price</th>
-    <th></th>
-  </tr></thead>
-  <tbody>
-   {{# each currentOrder}}
-    <tr>
-      <td>{{productname}}</td>
-      <td>{{qty}}</td>
-      <td>{{currency price}}</td>
-      <td><span style="color:black" class="label-important label removeci"><i class="remove icon red"></i></span></td>
-    </tr>
-     {{/each}}
-     <tr>
-         <th>Total (Ex. VAT)</th>
-         <td colspan="3">
-              {{#with orderCart}}
-        {{currency subtotal}}
-        {{/with}}
-         </td>
-     </tr>
-  </tbody>
-</table>
-   
-  </template>
+<template name="order"> 
+   <div class="ui form">
+     <h3 class="ui dividing header">My Order with {{#with supplier}} {{supplier}}{{/with}}</h3>
+       <div class="field">
 
- 
+         <label>Order No:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+         <input class="ui dropdown " type="text" id="orderNo">
+      </div> 
+      <div class="field">
+         <label>Order Date:&nbsp;&nbsp;</label>       
+         <input class="ui dropdown " type="text" id="orderDate">
+      </div>
+      <div class="field">
+         <label>Delivery Date:</label> 
+         <!-- <input class="ui dropdown datetimepicker" type="text"/>-->
+         <input class="ui dropdown " type="text" id="deliveryDate">
+      </div> 
+      <h4 class="ui dividing header">Order Details</h4>
+   <table class="ui very basic collapsing celled table">
+      <thead>
+         <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th></th>
+         </tr>
+      </thead>
+      <tbody>
+         {{# each currentOrder}}
+         <tr>
+            <td>{{productname}}</td>
+            <td>{{qty}}</td>
+            <td>{{currency price}}</td>
+            <td><span style="color:black" class="label-important label removeci"><i class="remove icon red"></i></span></td>
+         </tr>
+         {{/each}}
+         <tr>
+            <th>Total (Ex. VAT)</th>
+            <td colspan="3">
+               {{#with orderCart}}
+               {{currency subtotal}}
+               {{/with}}
+            </td>
+         </tr>
+      </tbody>
+   </table>
+    <div class="inline field">      
+         <textarea id="comment" rows="2" placeholder="Please enter any special requests here."></textarea>
+      </div>
+        <button type="submit" value="Submit" class="teal ui button submit">Submit Order</button>   
+   </div>
+</template>
 <!-- original
-
-<template name="order">
-    <div class="page-header">
-        <h1>
-            <small>My Order</small>
-        </h1>
-    </div>
-    <table class="span4 table table-striped table-bordered table-hover">
-        <thead>
-        <th>Qty</th>
-        <th>Product</th>
-        <th>Price</th>
-        <th></th>
-        </thead>
-        <tbody>
-        {{#each orderItems}}
-            <tr>
-                <td>{{qty}}</td>
-                <td>{{productname}}</td>
-                <td>{{currency price}}</td>
-                <td><span class="label-important label removeci">X</span></td>
-            </tr>
-        {{else}}
-            <tr>
-                <td colspan="3">No Products in Order</td>
-            </tr>
-        {{/each}}
-        {{#with orderCart}}
-            <tr>
-                <td class="totalcol" colspan="2">SubTotal:</td>
-                <td colspan="2">{{currency orderCart.subtotal}}</td>
-            </tr>
-            <tr>
-                <td class="totalcol" colspan="2">Tax 6%:</td>
-                <td colspan="2">{{currency orderCart.tax}}</td>
-            </tr>
-            <tr>
-                <td class="totalcol" colspan="2">Total:</td>
-                <td colspan="2">{{currency orderCart.total}}</td>
-            </tr>
-        {{/with}}
-        </tbody>
-    </table>
-</template> -->
+   <template name="order">
+       <div class="page-header">
+           <h1>
+               <small>My Order</small>
+           </h1>
+       </div>
+       <table class="span4 table table-striped table-bordered table-hover">
+           <thead>
+           <th>Qty</th>
+           <th>Product</th>
+           <th>Price</th>
+           <th></th>
+           </thead>
+           <tbody>
+           {{#each orderItems}}
+               <tr>
+                   <td>{{qty}}</td>
+                   <td>{{productname}}</td>
+                   <td>{{currency price}}</td>
+                   <td><span class="label-important label removeci">X</span></td>
+               </tr>
+           {{else}}
+               <tr>
+                   <td colspan="3">No Products in Order</td>
+               </tr>
+           {{/each}}
+           {{#with orderCart}}
+               <tr>
+                   <td class="totalcol" colspan="2">SubTotal:</td>
+                   <td colspan="2">{{currency orderCart.subtotal}}</td>
+               </tr>
+               <tr>
+                   <td class="totalcol" colspan="2">Tax 6%:</td>
+                   <td colspan="2">{{currency orderCart.tax}}</td>
+               </tr>
+               <tr>
+                   <td class="totalcol" colspan="2">Total:</td>
+                   <td colspan="2">{{currency orderCart.total}}</td>
+               </tr>
+           {{/with}}
+           </tbody>
+       </table>
+   </template> -->

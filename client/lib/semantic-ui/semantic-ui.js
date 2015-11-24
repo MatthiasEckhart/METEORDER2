@@ -40,3 +40,24 @@ Template.layout.onRendered(function(){
               $(".ui.sidebar").sidebar();
                $('.dropdown').dropdown();
              });
+
+Template.order.onRendered(function() {
+   // this.$('.datetimepicker').datetimepicker();
+ $('#orderDate').datetimepicker({
+        defaultDate: moment(),
+        value: moment(),
+        format:'llll'});
+
+    $('#deliveryDate').datetimepicker({
+        defaultDate: moment().add(1, 'days') ,
+        value: moment(),
+        format:'llll',
+        defaultTime:'12:00'});
+
+});
+
+
+
+
+
+
