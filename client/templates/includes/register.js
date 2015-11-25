@@ -7,7 +7,8 @@ Template.register.events({
         Accounts.createUser({
           username: username,
             email: email,
-            password: password
+            password: password,
+            profile:{currentOrder: 100000}
         }, function(error) {
             if (error) {
                 console.log(error.reason); // Output error if registration fails
@@ -15,6 +16,8 @@ Template.register.events({
                 Router.go("layout"); // Redirect user if registration succeeds
             }
         });
+      
         Router.go('/loggedIn');
+
     }
 });

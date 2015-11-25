@@ -168,7 +168,7 @@ Meteor.methods({
     addSpecialRequest: function(orderId, request) {
         check(orderId, String);
         check(request, String);
-
+        console.log('Request is a '+ typeof request);
         Orders.update({ _id : orderId },{ $set: {_id : orderId, request: request }});
         console.log('Request successfully added');
     },

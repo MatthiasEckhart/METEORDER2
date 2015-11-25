@@ -3,11 +3,11 @@
      <h3 class="ui dividing header">My Order with {{#with supplier}} {{supplier}}{{/with}}</h3>
        <div class="field">
 
-         <label>Order No:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
-         <input class="ui dropdown " type="text" id="orderNo">
+         <label>Order #:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+         <input class="ui dropdown " type="text" id="orderNo" value="{{#with orderNumber}} {{orderNumber}}{{/with}}">
       </div> 
       <div class="field">
-         <label>Order Date:&nbsp;&nbsp;</label>       
+         <label>Order Date:&nbsp;&nbsp;</label>   
          <input class="ui dropdown " type="text" id="orderDate">
       </div>
       <div class="field">
@@ -45,9 +45,9 @@
       </tbody>
    </table>
     <div class="inline field">      
-         <textarea id="comment" rows="2" placeholder="Please enter any special requests here."></textarea>
+         <textarea id="specialRequests" rows="2" placeholder="Please enter any special requests here." value="{{#if request}} {{request}}{{else}}{{/if}}"></textarea>
       </div>
-        <button type="submit" value="Submit" class="teal ui button submit">Submit Order</button>   
+        <button type="submit" value="Submit" class="teal ui button submit order-submit">Submit Order</button>   
    </div>
 </template>
 <!-- original
