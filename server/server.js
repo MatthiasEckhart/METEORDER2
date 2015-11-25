@@ -1,7 +1,5 @@
 Meteor.methods({
-
-    // BL added 20151109 
-    createOrder: function(userId, supplierId) {
+     createOrder: function(userId, supplierId) {
     check(supplierId, String);
     check(userId, String);
 
@@ -9,22 +7,10 @@ Meteor.methods({
     var lastOrder = user.profile.currentOrder;
     var currentOrder = lastOrder + 1;
 
-    Meteor.users.update({
-            _id: userId
-        }, {
-            $inc: {
-                "profile.currentOrder": 1
-            }
-        });
+    Meteor.users.update({_id: userId}, {$inc: {"profile.currentOrder": 1}});
 
     if (!openOrderExists(supplierId)) {
-        Orders.insert({
-            user: userId,
-            orderNumber: currentOrder,
-            supplier: supplierId,
-            orderItems: [],
-            status: 0
-        });
+        Orders.insert({user: userId, orderNumber: currentOrder, supplier: supplierId, orderItems: [], status: 0});
 
         console.log('order created maLord');
 
@@ -32,7 +18,8 @@ Meteor.methods({
         console.log('order already exists mLady');
     }
 },
-        addToOrder: function(userId, selectedSupplier, qty, product, session) {
+
+addToOrder: function(userId, selectedSupplier, qty, product, session) {
             check(userId, String);
             check(selectedSupplier, String);
             check(qty, Number);
@@ -73,8 +60,8 @@ Meteor.methods({
                 console.log('Quantity is Zero');
             }
 
-        },
-        increaseOrder: function(userId, selectedSupplier, qty, product, session) {
+        }, 
+     increaseOrder: function(userId, selectedSupplier, qty, product, session) {
             check(userId, String);
             check(selectedSupplier, String);
             check(qty, Number);
@@ -116,7 +103,7 @@ Meteor.methods({
             }
 
         },
-        decreaseOrder: function(userId, selectedSupplier, qty, product, session) {
+    decreaseOrder: function(userId, selectedSupplier, qty, product, session) {
             check(userId, String);
             check(selectedSupplier, String);
             check(qty, Number);
@@ -139,44 +126,31 @@ Meteor.methods({
                         }
                     });
                 } else {    
-                    Orders.update({
-                        user: userId,
-                        supplier: selectedSupplier,
-                        status: 0,
-                        'orderItems.product': product
-                    }, {
-                        $inc: {
-                            'orderItems.$.qty': qty
-                        }
-                    });                
-                }
-            } else {
+                    Orders.update({user: userId, supplier: selectedSupplier, status: 0, 'orderItems.product': product},
+                     {$inc: {'orderItems.$.qty': qty}});                
+                
+            }} else {
                 console.log('Quantity is Zero');
             }
 
         },
-
-    // end
-
-   
+    
     removeOrderItem: function(id, product) {
         check(id, String);
         check(product, String);
         Orders.update({ _id : id }, {$pull : { orderItems : {product:product} } } );
         console.log('successfully deleted');
     },
-    addSpecialRequest: function(orderId, request) {
+addSpecialRequest: function(orderId, request) {
         check(orderId, String);
         check(request, String);
-
         Orders.update({ _id : orderId },{ $set: {_id : orderId, request: request }});
         console.log('Request successfully added');
     },
-        createOrderNumber: function(userId){
+ createOrderNumber: function(userId){
          check(userId, String);
          OrderNumbers.insert({user: userId, currentOrder: 100000});
         }
-    
 });
 
 function alreadyAdded(userId, selectedSupplier, product) {
