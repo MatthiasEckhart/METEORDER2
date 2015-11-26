@@ -130,16 +130,38 @@ Template.order.events({
                var request = evt.target.value;
                 Meteor.call('addSpecialRequest', orderId, request);
     },
-    'submit .order-submit': function(evt, tmpl){
-         evt.preventDefault();
-         var selectedSupplier = Session.get('selectedSupplier');
+    'click .order-submit': function(evt, tmpl){
+         //evt.preventDefault();
+        var userId = Meteor.userId();
+        var selectedSupplier = Session.get('selectedSupplier');
         var order = Orders.findOne({
             supplier: selectedSupplier,
             status: 0
         });
         var orderId = order._id;
-        console.log('order submitted');
+
+        $('.ui.basic.test.modal')
+  .modal({
+    closable  : false,
+    onDeny    : function(){
+     
+    },
+    onApprove : function() {
+       console.log('order submitted');
         Meteor.call('submitOrder', orderId);
+        Meteor.call('sendOrderEmail',
+            'mrbrianlennon@gmail.com',
+            'brian@properorder.ie',
+            'Hello!',
+            'This is the order youve been looking for');
+          Meteor.call('createOrder',userId, supplierId);
+    }
+  })
+   .modal('setting', 'transition', 'fade')
+  .modal('show')
+;
+
+       
     }
 
 });

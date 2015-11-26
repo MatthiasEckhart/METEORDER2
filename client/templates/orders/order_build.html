@@ -1,4 +1,27 @@
 <template name="order"> 
+<div class="ui small basic test modal">
+    <div class="ui icon header">
+      <h2 class="ui header">
+       <img src="/logo.png" class="image">
+    </h2>
+      <br/>Please confirm your order with {{#with supplier}} {{supplier}}{{/with}}
+    </div>
+    <div class="content">
+      <p>If you are happy to proceed, please confirm your order. Please allow a few seconds for processing.</p>
+      <p>Have a great day! Thank you!</p>
+    </div>
+    <div class="actions">
+      <div class="ui red basic cancel inverted button">
+        <i class="remove icon"></i>
+        Cancel
+      </div>
+      <div class="ui green ok inverted button">
+        <i class="checkmark icon"></i>
+        Confirm
+      </div>
+    </div>
+  </div>
+
    <div class="ui form">
      <h3 class="ui dividing header">My Order with {{#with supplier}} {{supplier}}{{/with}}</h3>
        <div class="field">
@@ -50,47 +73,3 @@
         <button type="submit" value="Submit" class="teal ui button submit order-submit">Submit Order</button>   
    </div>
 </template>
-<!-- original
-   <template name="order">
-       <div class="page-header">
-           <h1>
-               <small>My Order</small>
-           </h1>
-       </div>
-       <table class="span4 table table-striped table-bordered table-hover">
-           <thead>
-           <th>Qty</th>
-           <th>Product</th>
-           <th>Price</th>
-           <th></th>
-           </thead>
-           <tbody>
-           {{#each orderItems}}
-               <tr>
-                   <td>{{qty}}</td>
-                   <td>{{productname}}</td>
-                   <td>{{currency price}}</td>
-                   <td><span class="label-important label removeci">X</span></td>
-               </tr>
-           {{else}}
-               <tr>
-                   <td colspan="3">No Products in Order</td>
-               </tr>
-           {{/each}}
-           {{#with orderCart}}
-               <tr>
-                   <td class="totalcol" colspan="2">SubTotal:</td>
-                   <td colspan="2">{{currency orderCart.subtotal}}</td>
-               </tr>
-               <tr>
-                   <td class="totalcol" colspan="2">Tax 6%:</td>
-                   <td colspan="2">{{currency orderCart.tax}}</td>
-               </tr>
-               <tr>
-                   <td class="totalcol" colspan="2">Total:</td>
-                   <td colspan="2">{{currency orderCart.total}}</td>
-               </tr>
-           {{/with}}
-           </tbody>
-       </table>
-   </template> -->

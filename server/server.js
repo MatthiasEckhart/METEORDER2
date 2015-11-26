@@ -150,11 +150,30 @@ addSpecialRequest: function(orderId, request) {
  createOrderNumber: function(userId){
          check(userId, String);
          OrderNumbers.insert({user: userId, currentOrder: 100000});
-        }
+        },
+        submitOrder: function(orderId){
+            check(orderId, String);
+            Orders.update({ _id : orderId },{ $set: {_id : orderId, status: 1 }});
+            console.log('submitted' + orderId);
+        },
+        sendOrderEmail: function (to, from, subject, text) {
+    check([to, from, subject, text], [String]);
+
+    // Let other method calls from the same client start running,
+    // without waiting for the email sending to complete.
+    this.unblock();
+
+    Email.send({
+      to: to,
+      from: from,
+      subject: subject,
+      text: text
+    });
+  }
 });
 
 function alreadyAdded(userId, selectedSupplier, product) {
-    if (!Orders.findOne({ user: userId, supplier:selectedSupplier, orderItems:{ $elemMatch: {product:product}}})) {
+    if (!Orders.findOne({ user: userId, supplier:selectedSupplier, status:0, orderItems:{ $elemMatch: {product:product}}})) {
         console.log('Prod not already added to order');
         return false;
     } else {

@@ -52,7 +52,7 @@ Template.order.onRendered(function() {
         defaultDate: moment().add(1, 'days') ,
         value: moment(),
         format:'llll',
-        defaultTime:'12:00'});
+        defaultTime:'11:00'});
 
 });
 
