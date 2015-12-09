@@ -7,8 +7,19 @@
 </template>
 
 <template name="error">
-  <div class="alert alert-danger" role="alert">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    {{message}}
+<div class="ui grid">
+  <div class="four column row">
+    <div class="right floated column">
+  <div class="ui floating pink message">
+   <i class="close icon"></i>
+  <div class="header">
+    Uh-oh! We've hit a roadblock!
+  </div>
+  <p>{{message}}</p>
+  </div>
+  </div>
+  </div>
   </div>
 </template>
+
+

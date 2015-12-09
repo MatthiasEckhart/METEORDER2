@@ -1,30 +1,44 @@
-
 <template name="layout">
    <div class="ui container fluid ">
       <div class="Site">
          <main class="Site-content">
             {{> errors}}
-            <div class="ui internally celled grid">
-
-               <div class="three wide column left-column">
-                <div class="ui one column internally celled grid header-row">
-                     <div class="column">
-                     <div class="ui dividing header menu-header-custom">
-                     <h2 class="ui header">
-       <img src="/logo.png" class="image">
-      <div style="color:#ffffff;" class="content">
-       Welcome.
-      </div>
-    </h2>
-    </div>
+            <div id="order-sheet" class="ui internally celled grid">
+               <div class="three wide column left-column sticky">
+                  <div class="ui dark-grey" >
+                     <div class="ui one column internally celled grid header-row">
+                        <div class="column">
+                           <div class="ui dividing header menu-header-custom">
+                              <h2 class="ui header">
+                                 <img src="/logo.png" class="image">
+                                 <div style="color:#ffffff;" class="content">
+                                    Welcome.
+                                 </div>
+                              </h2>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="supplier">
+                        <div class="item">
+                           <div class="ui dividing header menu-header-custom">
+                              <h3 class="ui header h3-custom">
+                                 My Suppliers
+                              </h3>
+                              {{#if currentUser}}
+                              <div>
+                                 <a href="{{pathFor 'supplierCreate'}}"><i class="ui icon icon-po add circle addSupplier-popup" data-content="Click me to add your awesome new supplier." data-variation="tiny"></i></a>
+                              </div>
+                              {{/if}}
+                           </div>
+                        </div>
                      </div>
                   </div>
                   <div class="ui left vertical inverted inverted-custom sticky menu fluid">
                      {{> suppliersList}}
                   </div>
-                <!--  {{#if currentUser}}-->
+                  <!--  {{#if currentUser}}-->
                   <!-- <li><a href="#" class="logout logout-popup" data-content="Bye for now gorgeous!!" data-variation="tiny">Logout</a></li>-->    
-                <!--  <li>
+                  <!--  <li>
                      <div class="ui buttons">
                         <div class="ui floating dropdown icon button">
                            <i class="setting big icon blue "></i>
@@ -33,13 +47,13 @@
                            </div>
                         </div>
                      </div>
-                  </li>
-                  {{/if}} -->
+                     </li>
+                     {{/if}} -->
                </div>
                <div class="thirteen wide column">
                   <div class="ui one column internally celled grid header-row">
                      <div class="column">
-                         {{> loggedinheader}}
+                        {{> loggedinheader}}
                      </div>
                   </div>
                   <div class="ui internally celled grid ">
@@ -47,7 +61,7 @@
                         <!-- <button class="ui toggle button supplier-sidebar-show">+</button> -->
                         {{> yield}}
                      </div>
-                     <div class="six wide column" id="side" >
+                     <div class="six wide column sticky" id="side" >
                         {{> order}}
                      </div>
                   </div>

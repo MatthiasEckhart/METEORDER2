@@ -16,3 +16,11 @@
 .header-row{
 	min-height: 60px !important;
 }
+
+.ui.fixed.sticky + p {
+  margin-top: 39px;
+}
+
+.dark-grey{
+	background-color: #4c5250;
+}

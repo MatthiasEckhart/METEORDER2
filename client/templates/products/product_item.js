@@ -1,7 +1,21 @@
 Template.productItem.helpers({
   submittedText: function() {
     return this.submitted.toString();
-  }
+  }/* ,
+  currentQty: function() {
+        var userId = Meteor.userId();
+        var selectedSupplier = Session.get('selectedSupplier');
+        var order = Orders.findOne({
+            supplier: selectedSupplier,
+            status: 0
+        });
+        // console.log('hello ' + currentOrder.orderItems.product[0]); // this returns [object object] ...why???
+        // return supplier;
+
+        var currentQty = order.qty;
+        return currentQty;
+
+    }*/
 });
 
 Template.productItem.events({

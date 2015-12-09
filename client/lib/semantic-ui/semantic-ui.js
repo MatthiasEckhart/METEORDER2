@@ -37,8 +37,9 @@ Template.header.onRendered(function(){
 
 
 Template.layout.onRendered(function(){
-              $(".ui.sidebar").sidebar();
+               $(".ui.sidebar").sidebar();
                $('.dropdown').dropdown();
+               $('.ui.sticky').sticky({context: '#order-sheet'});
              });
 
 Template.order.onRendered(function() {

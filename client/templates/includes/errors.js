@@ -9,4 +9,12 @@ Template.error.onRendered(function() {
   Meteor.setTimeout(function () {
     Errors.remove(error._id);
   }, 3000);
+  $('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  })
+;
 });

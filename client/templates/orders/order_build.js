@@ -140,6 +140,9 @@ Template.order.events({
         });
         var orderId = order._id;
 
+        var supplierDetails = Suppliers.findOne({_id:selectedSupplier});
+        var supplierEmail = supplierDetails.supplierEmail;
+
         $('.ui.basic.test.modal')
   .modal({
     closable  : false,
@@ -150,7 +153,7 @@ Template.order.events({
        console.log('order submitted');
         Meteor.call('submitOrder', orderId);
         Meteor.call('sendOrderEmail',
-            'mrbrianlennon@gmail.com',
+            supplierEmail,
             'brian@properorder.ie',
             'Hello!',
             'This is the order youve been looking for');
