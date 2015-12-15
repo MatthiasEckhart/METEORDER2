@@ -1,8 +1,6 @@
 Meteor.publish('suppliers', function() {
 	var currentUserId = this.userId;
-  return Suppliers.find({
-            userId: currentUserId
-        });
+  return Suppliers.find({userId: currentUserId});
 });
 
 Meteor.publish('products', function(supplierId) {
@@ -10,8 +8,7 @@ Meteor.publish('products', function(supplierId) {
   return Products.find({supplierId: supplierId});
 });
 
-Meteor.publish('orderitems', function() {
-  
+Meteor.publish('orderitems', function() { 
   return OrderItems.find()
 });
 
