@@ -191,7 +191,7 @@ Meteor.methods({
         });
         console.log('submitted' + orderId);
     },
-    sendOrderEmail: function(to, from, subject, text) {
+    sendOrderEmail: function(to, from, cc, subject, text) {
         check([to, from, subject, text], [String]);
 
         // Let other method calls from the same client start running,
@@ -201,6 +201,7 @@ Meteor.methods({
         Email.send({
             to: to,
             from: from,
+            cc: cc,
             subject: subject,
             text: text
         });

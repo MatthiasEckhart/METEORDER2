@@ -136,6 +136,7 @@ Template.order.events({
             _id: selectedSupplier
         });
         var supplierEmail = supplierDetails.supplierEmail;
+        var userEmail = Meteor.user().emails[0].address;
 
         $('.ui.basic.test.modal')
             .modal({
@@ -148,6 +149,7 @@ Template.order.events({
                     Meteor.call('submitOrder', orderId);
                     Meteor.call('sendOrderEmail',
                         supplierEmail,
+                        userEmail,
                         'brian@properorder.ie',
                         'Hello!',
                         'This is the order youve been looking for');
